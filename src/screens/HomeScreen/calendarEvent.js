@@ -73,6 +73,14 @@ export default class EventScreen extends Component {
 
         return (
             <View style={styles.container} >
+                <Text category='h6'>
+                    Selected date: {this.state.date.toLocaleDateString()}
+                </Text>
+                <Calendar
+                    date={this.state.date}
+                    onSelect={this.showEvent.bind(this)}
+                    style={styles.calendarContainer}
+                />
                 <List
                     style={styles.containerList}
                     contentContainerStyle={styles.contentList}
@@ -92,6 +100,20 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         height: Dimensions.get('window').height,
+    },
+    calendarContainer: {
+        backgroundColor: '#fff',
+        height: '50%',
+        width: '96%',
+        borderRadius: 0
+    },
+    event: {
+        backgroundColor: '#02598C',
+        height: '30%',
+        width: '96%',
+        borderRadius: 10,
+        padding: 20,
+
     },
     textNormalLight: {
         textAlign: 'justify',
@@ -115,6 +137,17 @@ const styles = StyleSheet.create({
         paddingTop: 14,
         paddingBottom: 14,
         fontWeight: 'bold',
+    },
+    headerCalendar: {
+        backgroundColor: '#fff',
+        height: '10%',
+        width: '96%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        // borderColor: '#02598C',
+        // borderWidth: 1
+        // padding: 20,
+        // marginTop: 20
     },
     containerList: {
         maxHeight: 320,

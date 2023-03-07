@@ -5,8 +5,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './home';
 import EnrollScreen from './enroll';
 import FiveGoodScreen from './fiveGood';
-
-
+import OpinionScreen from './opinion';
+import GameScreen from './game';
+import CalendarScreen from './calendarEvent';
+import ArchivementScreen from './archivement'
 function NotificationsScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -47,7 +49,10 @@ function MyStack() {
       <Stack.Screen name="HOME" component={HomeScreen} options={{ headerTitle: "Trang chủ", headerLeft: false}} />
       <Stack.Screen name="ENROLL" component={EnrollScreen} options={{ headerTitle: "Đăng ký kết nạp" }} />
       <Stack.Screen name="FIVE_GOOD" component={FiveGoodScreen} options={{ headerTitle: "Sinh viên 5 tốt" }}/>
-      <Stack.Screen name="d" component={SettingsScreen} />
+      <Stack.Screen name="ARCHIVEMENT" component={ArchivementScreen} options={{ headerTitle: "Khen thưởng, kỷ luật" }}/>
+      <Stack.Screen name="CALENDAR" component={CalendarScreen} options={{ headerTitle: "Lịch sự kiện" }}/>
+      <Stack.Screen name="OPINION" component={OpinionScreen} options={{ headerTitle: "Đóng góp ý kiến" }}/>
+      <Stack.Screen name="GAME" component={GameScreen} options={{ headerTitle: "Trò chơi lớn" }}/>
     </Stack.Navigator>
   );
 }

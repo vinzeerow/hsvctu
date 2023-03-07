@@ -85,27 +85,42 @@ export default class HomeScreen extends Component {
                     </Layout>
                     <Layout style={styles.cardContainer} level='1'>
 
-                        <Card style={styles.card} header={Trophy}>
+                        <Card
+                            style={styles.card}
+                            header={Trophy}
+                            onPress={() => this.props.navigation.navigate('ARCHIVEMENT')}
+                        >
                             <Text style={styles.textNormalCenter} category='c1'>Khen thưởng {"\n"}và kỷ luật</Text>
                         </Card>
 
-                        <Card style={styles.card} header={ListActivity}>
-                            <Text style={styles.textNormalCenter} category='c1'>Thống kê hoạt động</Text>
+                        <Card
+                            style={styles.card}
+                            header={ListActivity}
+                            onPress={() => this.props.navigation.navigate('CALENDAR')}
+                        >
+                            <Text style={styles.textNormalCenter} category='c1'>Xem lịch sự kiện</Text>
                         </Card>
 
                     </Layout>
                     <Layout style={styles.cardContainer} level='1'>
 
-                        <Card style={styles.card} header={Opinion} >
+                        <Card
+                            style={styles.card}
+                            header={Opinion}
+                            onPress={() => this.props.navigation.navigate('OPINION')}
+                        >
                             <Text style={styles.textNormalCenter} category='c1'>Đóng góp ý kiến</Text>
                         </Card>
 
-                        <Card style={styles.card} header={Game}>
+                        <Card
+                            style={styles.card}
+                            header={Game}
+                            onPress={() => this.props.navigation.navigate('GAME')}
+                        >
                             <Text style={styles.textNormalCenter} category='c1'>Trò chơi lớn</Text>
                         </Card>
 
                     </Layout>
-                    {/* <HomeNavigator /> */}
                 </View>
             </View>
             // </ScrollView>
