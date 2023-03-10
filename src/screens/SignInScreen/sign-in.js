@@ -57,7 +57,7 @@ export default class LoginScreen extends Component {
             secureTextEntry={true}
           />
 
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('HOME_TAB')} style={styles.loginBtn}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('TAB')} style={styles.loginBtn}>
             <Text style={styles.loginText}>ĐĂNG NHẬP</Text>
           </TouchableOpacity>
         </View>

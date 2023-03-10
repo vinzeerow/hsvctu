@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, View, StyleSheet } from 'react-native';
+import { SafeAreaView, Image,View, StyleSheet } from 'react-native';
 // import { ApplicationProvider, BottomNavigation, BottomNavigationTab, Icon, Button, Divider, Layout, TopNavigation } from '@ui-kitten/components';
 import { Calendar, Text, Card, List } from '@ui-kitten/components';
 import { Dimensions } from 'react-native';
@@ -31,7 +31,7 @@ export default class EventScreen extends Component {
 
     showEvent = (nextDate) => {
         console.log('Tên sự kiện của ngày ' + nextDate);
-        this.setState({ date: nextDate});
+        this.setState({ date: nextDate });
     }
 
     render() {
@@ -56,6 +56,14 @@ export default class EventScreen extends Component {
                 </View>
             )
         }
+        const renderItemFooter = (footerProps, info) => {
+            return (
+                <View {...footerProps}>
+                    <Text style={styles.textNormalLight} category='s2' >Thời gian: {info.item.ThoiGian}</Text>
+                    <Text style={styles.textNormalLight} category='s2' >Địa điểm: {info.item.DiaDiem}</Text>
+                </View>
+            )
+        }
 
         const renderItem = (info) => {
             return (
@@ -63,9 +71,12 @@ export default class EventScreen extends Component {
                     style={styles.item}
                     status='basic'
                     header={headerProps => renderItemHeader(headerProps, info)}
+                    footer={footerProps => renderItemFooter(footerProps, info)}
                 >
-                    <Text style={styles.textNormalLight} category='s2' >Thời gian: {info.item.ThoiGian}</Text>
-                    <Text style={styles.textNormalLight} category='s2' >Địa điểm: {info.item.DiaDiem}</Text>
+                    <Image
+                        style={styles.image}
+                        source={require('../../../assets/img-event-1.jpg')}
+                    />
                 </Card>
 
             )
@@ -117,14 +128,17 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     containerList: {
-        maxHeight: 320,
-        width: '96%'
+        maxHeight: Dimensions.get('window').height,
+        width: '100%'
     },
     contentList: {
         // paddingHorizontal: 8,
-        paddingVertical: 4,
+        // paddingVertical: 4,
     },
     item: {
-        marginVertical: 4,
+        // marginVertical: 4,
     },
+    image:{
+        width: '100%'
+    }
 })

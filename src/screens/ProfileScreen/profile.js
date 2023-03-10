@@ -1,14 +1,42 @@
 import React, { Component } from 'react';
-import { SafeAreaView, View, ScrollView } from 'react-native';
-import { Avatar, Icon, Button, Text, Divider, Layout, TopNavigation } from '@ui-kitten/components';
-import { StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
+import { BottomNavigation, BottomNavigationTab, Avatar, Icon, Button, Divider, Layout, TopNavigation } from '@ui-kitten/components';
+import { Calendar, Text, Card, List } from '@ui-kitten/components';
 import { Dimensions } from 'react-native';
+// import { ScrollView } from 'react-navigation';
 
 export default class ProfileScreen extends Component {
+    constructor(probs) {
+        super(probs);
+        this.state = {
+            dataNotification: [
+                {
+                    TieuDe: "Khen thưởng",
+                    NoiDung: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s",
+                    ThoiGian: "07/03/2023",
+                },
+                {
+                    TieuDe: "Thông báo số 2",
+                    NoiDung: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s",
+                    ThoiGian: "09/03/2023",
+                },
+                {
+                    TieuDe: "Thông báo số 3",
+                    NoiDung: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s",
+                    ThoiGian: "07/03/2023",
+                },
+                {
+                    TieuDe: "Thông báo số 4",
+                    NoiDung: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s",
+                    ThoiGian: "07/03/2023",
+                },
+            ]
+        }
+    }
     render() {
         return (
             <ScrollView>
-                <View style={styles.container}>
+                <View style={styles.container} >
                     <View style={styles.coverHeader}>
                         <Button style={styles.btnLogout}>Đăng xuất</Button>
                     </View>
@@ -16,30 +44,11 @@ export default class ProfileScreen extends Component {
                         <Avatar style={styles.avatar} shape='round' source={require('../../../assets/avatar-1.jpg')} />
                         <Text style={styles.textHeadingLight} category='h6' >Trương Phúc Vĩnh</Text>
                     </View>
-                    <View style={styles.contentProfile}>
-                        <Text style={styles.textLabel} category='s2' >Mã số sinh viên:
-                            <Text style={styles.textNormalDark} category='s2' > B1906809</Text>
-                        </Text>
 
-
-                        <Text style={styles.textLabel} category='s2' >Ngành, khóa:
-                            <Text style={styles.textNormalDark} category='s2' > Kỹ thuật phần mềm K45</Text>
-                        </Text>
-                        <Text style={styles.textLabel} category='s2' >Đơn vị:</Text>
-                        <Text style={styles.textLabel} category='s2' >Ngày sinh:</Text>
-                        <Text style={styles.textLabel} category='s2' >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s</Text>
-                        <Text style={styles.textLabel} category='s2' >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s</Text>
-                        <Text style={styles.textLabel} category='s2' >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s</Text>
-                        <Text style={styles.textLabel} category='s2' >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s</Text>
-                        <Text style={styles.textLabel} category='s2' >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s</Text>
-                        <Text style={styles.textLabel} category='s2' >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s</Text>
+                    <View style={styles.archivement}>
+                        
                     </View>
                 </View>
-
-
-                {/* <View style={styles.profile}>
-
-                </View> */}
             </ScrollView>
 
         )
@@ -49,11 +58,10 @@ export default class ProfileScreen extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#02598C',
         alignItems: 'center',
-        justifyContent: 'flex-start',
-        // maxHeight: Dimensions.get('window').height,
-
+        justifyContent: 'center',
+        // height: Dimensions.get('window').height,
     },
     headerProfile: {
         height: 180,
@@ -62,10 +70,28 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#02598C'
     },
+    archivement: {
+        height: Dimensions.get('window').height,
+        width: '100%',
+        backgroundColor: '#fff',
+        borderTopLeftRadius: 18,
+        borderTopRightRadius: 18,
+    },
     avatar: {
         margin: 8,
         height: 100,
         width: 100
+    },
+    textNormalLight: {
+        textAlign: 'justify',
+        color: '#000',
+        paddingBottom: 3,
+        paddingTop: 3
+    },
+    textRed: {
+        color: 'red',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     textHeadingLight: {
         textAlign: 'center',
@@ -76,26 +102,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
 
     },
-    textHeadingDark: {
+    textHeadingLight: {
         textAlign: 'center',
-        color: '#000',
+        color: '#fff',
         textTransform: 'uppercase',
-        paddingTop: 6,
-        paddingBottom: 6,
-        fontWeight: 'bold'
-
-    },
-    textLabel: {
-        color: '#000',
-        paddingTop: 6,
-        paddingBottom: 6,
-        fontWeight: 'bold',
-        textAlign: 'left'
-    },
-    textNormalDark: {
-        color: '#000',
+        paddingTop: 14,
         paddingBottom: 14,
-        textAlign: 'justify'
+        fontWeight: 'bold',
     },
     coverHeader: {
         backgroundColor: "#02598C",
@@ -114,12 +127,4 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         fontWeight: 'bold'
     },
-    contentProfile: {
-        // height: '70%',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
-        width: '90%',
-        paddingTop: 10
-    }
-
-});
+})
